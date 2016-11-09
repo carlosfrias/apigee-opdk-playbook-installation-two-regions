@@ -271,6 +271,13 @@
   - dc-2-qpid
   - dc-2
 
+- include: components/opdk-setup-qpid-add.yml
+  vars:
+    hosts: 'dc-2-qpid'
+  tags:
+  - dc-2-qpid
+  - dc-2
+
 - include: components/opdk-setup-postgres-common.yml
   vars:
     hosts: 'dc-2-pgmaster'
