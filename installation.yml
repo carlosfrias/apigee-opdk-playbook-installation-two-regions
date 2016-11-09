@@ -298,6 +298,14 @@
   - dc-2
   - dc-2-pg
 
+- include: components/opdk-setup-postgresql-add.yml
+  vars:
+    hosts: 'dc-2-standby'
+  tags:
+  - dc-2-pgstandby
+  - dc-2
+  - dc-2-pg
+
 - include: configuration/opdk-setup-org-config.yml
   vars:
     hosts: 'dc-2-ms'

@@ -1,0 +1,9 @@
+---
+- hosts: '{{ hosts }}'
+  vars_files:
+  - ~/.apigee/credentials.yml
+  roles:
+  - apigee-opdk-setup-default-settings
+  - { role: apigee-opdk-server-self, server_type: 'ps'}
+  - apigee-opdk-setup-postgresql-add
+
