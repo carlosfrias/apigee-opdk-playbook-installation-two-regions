@@ -340,7 +340,98 @@
   - dc-2
 
 - include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-1-ds
   tags:
   - logs
   - dc-1
   - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-2-ds
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-1-ms
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-2-ms
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-1-rmp
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-2-rmp
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-1-qpid
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-2-qpid
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-1-pgmaster
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-2-pgmaster
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-1-pgstandby
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
+- include: validations/opdk-setup-log-files.yml
+  vars:
+    hosts: dc-2-pgstandby
+  tags:
+  - logs
+  - dc-1
+  - dc-2
+
