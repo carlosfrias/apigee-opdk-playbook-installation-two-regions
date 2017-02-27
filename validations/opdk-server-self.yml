@@ -3,23 +3,22 @@
   serial: 1
   roles:
   - apigee-opdk-setup-default-settings
-  - { role: apigee-opdk-server-self, server_type: 'router'}
-  - { role: apigee-opdk-server-self, server_type: 'mp'}
+  - { role: apigee-opdk-server-self, server_types: ['router','mp']}
 
 - hosts: pg
   serial: 1
   roles:
   - apigee-opdk-setup-default-settings
-  - { role: apigee-opdk-server-self, server_type: 'ps'}
+  - { role: apigee-opdk-server-self, server_types: ['ps']}
 
 - hosts: qpid
   serial: 1
   roles:
   - apigee-opdk-setup-default-settings
-  - { role: apigee-opdk-server-self, server_type: 'qs'}
+  - { role: apigee-opdk-server-self, server_types: ['qs']}
 
 - hosts: ms
   serial: 1
   roles:
   - apigee-opdk-setup-default-settings
-  - { role: apigee-opdk-server-self, server_type: 'ms'}
+  - { role: apigee-opdk-server-self, server_types: ['ms']}
