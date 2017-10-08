@@ -4,8 +4,8 @@
   - cache
   - os-pre-req
   - apigee-pre-req
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
   - apigee-logs
   - logs
   - os-logs
@@ -18,10 +18,10 @@
   - credentials
   - os-pre-req
   - apigee-pre-req
-  - dc-1
-  - dc-2
-  - dc-1-validation
-  - dc-2-validation
+  - dc1
+  - dc2
+  - dc1-validation
+  - dc2-validation
   - apigee-logs
   - logs
   - os-logs
@@ -33,8 +33,8 @@
   tags:
   - os
   - os-pre-req
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
   - ds
 
 - include: configuration/update-user.yml
@@ -43,91 +43,91 @@
     user: 'root'
   tags:
   - root-user
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
   - ds
 
 # Region 1
 - include: components/opdk-pre-requisites.yml
   vars:
-    hosts: 'dc-1'
+    hosts: 'dc1'
     jdk_version: '1.8'
   tags:
   - apigee-pre-req
-  - dc-1
+  - dc1
   - ds
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-1-ds'
+    hosts: 'dc1-ds'
     component_profile: 'ds'
   tags:
-  - dc-1-ds
-  - dc-1
+  - dc1-ds
+  - dc1
   - ds
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-1-ms'
+    hosts: 'dc1-ms'
     component_profile: 'ms'
   tags:
-  - dc-1-ms
-  - dc-1
+  - dc1-ms
+  - dc1
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-1-rmp'
+    hosts: 'dc1-rmp'
     component_profile: 'rmp'
   tags:
-  - dc-1-rmp
-  - dc-1
+  - dc1-rmp
+  - dc1
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-1-qpid'
+    hosts: 'dc1-qpid'
     component_profile: 'qs'
   tags:
-  - dc-1-qpid
-  - dc-1
+  - dc1-qpid
+  - dc1
 
 - include: components/opdk-setup-postgres-common.yml
   vars:
-    hosts: 'dc-1-pgmaster'
+    hosts: 'dc1-pgmaster'
     pg_component: 'master'
   tags:
-  - dc-1-pgmaster
-  - dc-1
-  - dc-1-pg
+  - dc1-pgmaster
+  - dc1
+  - dc1-pg
 
 - include: components/opdk-setup-postgres-common.yml
   vars:
-    hosts: 'dc-1-pgstandby'
+    hosts: 'dc1-pgstandby'
     pg_component: 'standby'
   tags:
-  - dc-1-pgstandby
-  - dc-1
-  - dc-1-pg
+  - dc1-pgstandby
+  - dc1
+  - dc1-pg
 
 - include: configuration/opdk-setup-org-config.yml
   vars:
-    hosts: 'dc-1-ms'
+    hosts: 'dc1-ms'
   tags:
-  - dc-1-org
-  - dc-1
+  - dc1-org
+  - dc1
 
 - include: configuration/opdk-setup-org.yml
   vars:
-    hosts: 'dc-1-ms'
+    hosts: 'dc1-ms'
   tags:
-  - dc-1-org
-  - dc-1
+  - dc1-org
+  - dc1
 
 - include: validations/opdk-setup-validate.yml
   vars:
-    hosts: 'dc-1-rmp'
+    hosts: 'dc1-rmp'
   tags:
-  - dc-1-validation
-  - dc-1
+  - dc1-validation
+  - dc1
 
 # Region 2
 - include: components/opdk-pre-requisites.yml
@@ -137,181 +137,181 @@
     opdk_ldap_type: '2'
   tags:
   - apigee-pre-req
-  - dc-2
+  - dc2
   - ds
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-2-ds'
+    hosts: 'dc2-ds'
     component_profile: 'ds'
     jdk_version: '1.8'
   tags:
-  - dc-2-ds
-  - dc-2
+  - dc2-ds
+  - dc2
   - ds
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-1-ds'
+    hosts: 'dc1-ds'
     component_profile: 'ds'
     jdk_version: '1.8'
   tags:
-  - dc-2-ds
-  - dc-2
+  - dc2-ds
+  - dc2
   - ds
 
 - include: components/opdk-cassandra-client-update.yml
   vars:
-     hosts: 'dc-1-ms'
+     hosts: 'dc1-ms'
      jdk_version: '1.8'
   tags:
-  - dc-2-ms
-  - dc-2
+  - dc2-ms
+  - dc2
   - ds
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-1-ms'
+    hosts: 'dc1-ms'
     component_profile: 'ms'
     jdk_version: '1.8'
   tags:
-  - dc-2-ms
-  - dc-2
+  - dc2-ms
+  - dc2
 
 - include: components/opdk-cassandra-rebuild.yml
   vars:
-    hosts: 'dc-2-ds'
+    hosts: 'dc2-ds'
     jdk_version: '1.8'
   tags:
-  - dc-2-ms
-  - dc-2
+  - dc2-ms
+  - dc2
   - ds
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-2-ms'
+    hosts: 'dc2-ms'
     component_profile: 'ms'
     jdk_version: '1.8'
   tags:
-  - dc-2-ms
-  - dc-2
+  - dc2-ms
+  - dc2
 
 - include: configuration/opdk-set-reachable.yml
   vars:
-    hosts: 'dc-2-rmp'
+    hosts: 'dc2-rmp'
     reachability: 'false'
   tags:
-  - dc-2-rmp
-  - dc-2
+  - dc2-rmp
+  - dc2
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-2-rmp'
+    hosts: 'dc2-rmp'
     component_profile: 'rmp'
     jdk_version: '1.8'
   tags:
-  - dc-2-rmp
-  - dc-2
+  - dc2-rmp
+  - dc2
 
 - include: configuration/opdk-set-reachable.yml
   vars:
-    hosts: 'dc-2-rmp'
+    hosts: 'dc2-rmp'
     reachability: 'true'
   tags:
-  - dc-2-rmp
-  - dc-2
+  - dc2-rmp
+  - dc2
 
 - include: configuration/opdk-set-reachable.yml
   vars:
-    hosts: 'dc-1-rmp'
+    hosts: 'dc1-rmp'
     reachability: 'false'
   tags:
-  - dc-2-rmp
-  - dc-2
+  - dc2-rmp
+  - dc2
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-1-rmp'
+    hosts: 'dc1-rmp'
     component_profile: 'rmp'
     jdk_version: '1.8'
   tags:
-  - dc-2-rmp
-  - dc-2
+  - dc2-rmp
+  - dc2
 
 - include: configuration/opdk-set-reachable.yml
   vars:
-    hosts: 'dc-1-rmp'
+    hosts: 'dc1-rmp'
     reachability: 'true'
   tags:
-  - dc-2-rmp
-  - dc-2
+  - dc2-rmp
+  - dc2
 
 - include: components/opdk-install-component.yml
   vars:
-    hosts: 'dc-2-qpid'
+    hosts: 'dc2-qpid'
     component_profile: 'qs'
     jdk_version: '1.8'
   tags:
-  - dc-2-qpid
-  - dc-2
+  - dc2-qpid
+  - dc2
 
 - include: components/opdk-setup-qpid-add.yml
   vars:
-    hosts: 'dc-2-qpid'
+    hosts: 'dc2-qpid'
   tags:
-  - dc-2-qpid
-  - dc-2
+  - dc2-qpid
+  - dc2
 
 #  TODO: add new ax group here then continue
 
 - include: components/opdk-setup-postgres-common.yml
   vars:
-    hosts: 'dc-2-pgmaster'
+    hosts: 'dc2-pgmaster'
     pg_component: 'master'
     jdk_version: '1.8'
   tags:
-  - dc-2-pgmaster
-  - dc-2
-  - dc-2-pg
+  - dc2-pgmaster
+  - dc2
+  - dc2-pg
 
 - include: components/opdk-setup-postgres-common.yml
   vars:
-    hosts: 'dc-2-pgstandby'
+    hosts: 'dc2-pgstandby'
     pg_component: 'standby'
     jdk_version: '1.8'
   tags:
-  - dc-2-pgstandby
-  - dc-2
-  - dc-2-pg
+  - dc2-pgstandby
+  - dc2
+  - dc2-pg
 
 - include: components/opdk-setup-postgresql-add.yml
   vars:
-    hosts: 'dc-2-standby'
+    hosts: 'dc2-standby'
   tags:
-  - dc-2-pgstandby
-  - dc-2
-  - dc-2-pg
+  - dc2-pgstandby
+  - dc2
+  - dc2-pg
 
 - include: configuration/opdk-setup-org-config.yml
   vars:
-    hosts: 'dc-2-ms'
+    hosts: 'dc2-ms'
   tags:
-  - dc-2-org
-  - dc-2
+  - dc2-org
+  - dc2
 
 - include: configuration/opdk-setup-org.yml
   vars:
-    hosts: 'dc-2-ms'
+    hosts: 'dc2-ms'
   tags:
-  - dc-2-org
-  - dc-2
+  - dc2-org
+  - dc2
 
 - include: validations/opdk-setup-validate.yml
   vars:
-    hosts: 'dc-2-rmp'
+    hosts: 'dc2-rmp'
   tags:
-  - dc-2-validation
-  - dc-2
+  - dc2-validation
+  - dc2
 
 - include: validations/opdk-internal-port-connectivity-validator.yml
   tags:
@@ -322,102 +322,102 @@
     hosts: 'planet'
   tags:
   - status
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-1-ds
+    hosts: dc1-ds
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-2-ds
+    hosts: dc2-ds
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-1-ms
+    hosts: dc1-ms
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-2-ms
+    hosts: dc2-ms
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-1-rmp
+    hosts: dc1-rmp
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-2-rmp
+    hosts: dc2-rmp
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-1-qpid
+    hosts: dc1-qpid
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-2-qpid
+    hosts: dc2-qpid
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-1-pgmaster
+    hosts: dc1-pgmaster
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-2-pgmaster
+    hosts: dc2-pgmaster
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-1-pgstandby
+    hosts: dc1-pgstandby
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
 - include: validations/opdk-setup-log-files.yml
   vars:
-    hosts: dc-2-pgstandby
+    hosts: dc2-pgstandby
   tags:
   - logs
-  - dc-1
-  - dc-2
+  - dc1
+  - dc2
 
