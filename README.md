@@ -25,3 +25,9 @@ The following ansible roles will be installed with the requirements.yml file:
 * [apigee-opdk-setup-apigee-log-files](https://github.com/carlosfrias/apigee-opdk-setup-apigee-log-files)
 * [fetch-files](https://github.com/carlosfrias/apigee-fetch-files)
 
+<!-- BEGIN Google Required Disclaimer -->
+
+# Required Disclaimer
+
+This is not an officially supported Google product.
+<!-- END Google Required Disclaimer -->
