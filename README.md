@@ -27,7 +27,7 @@ The following ansible roles will be installed with the requirements.yml file:
 
 <!-- BEGIN Google Required Disclaimer -->
 
-# Required Disclaimer
+# Not Google Product Clause
 
 This is not an officially supported Google product.
 <!-- END Google Required Disclaimer -->
